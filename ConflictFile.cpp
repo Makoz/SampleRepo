@@ -4,9 +4,12 @@ using namespace std;
 
 void foo(){
 	
-	cout << "Initial " << endl;
+	foo1();
 }
 
+void foo1(){
+	cout << "CHANGED" << endl;
+}
 
 int main(){
 	
