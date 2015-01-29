@@ -4,7 +4,7 @@ using namespace std;
 
 void foo(){
 	
-	cout << "Initial " << endl;
+	cout << "Initial 2" << endl;
 }
 
 
