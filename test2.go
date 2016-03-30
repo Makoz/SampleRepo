@@ -1,16 +1,53 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
 	// "os/exec"
 )
 
+type CFReturnVal struct {
+	FunArgs        interface{}
+	Ip             string
+	FunName        string
+	ServiceFunName string
+	CFInfo         ChainingFunctionInfo
+}
+
+type ChainingFunctionInfo struct {
+	GitRepo  string
+	RepoName string
+	FileName string
+	CFName   string
+}
+
+type GetArgs struct {
+	Key string
+}
+
 func func1() {
-	fmt.Println("func1 from test2")
+
+	var cfInfo ChainingFunctionInfo
+	cfInfo.GitRepo = "https://github.com/Makoz/SampleRepo.git"
+	cfInfo.FileName = "test2.go"
+	cfInfo.CFName = "2"
+	cfInfo.RepoName = "SampleRepo"
+	var args GetArgs
+	args.Key = "hi"
+	var returnVal CFReturnVal
+	returnVal.Ip = "localhost:4000"
+	returnVal.FunName = "1"
+	returnVal.FunArgs = args
+	returnVal.ServiceFunName = "SampleServ.Reverse"
+	returnVal.CFInfo = cfInfo
+	buff, _ := json.Marshal(returnVal)
+	str := string(buff)
+	fmt.Println(str)
 }
 
 func func2() {
+
 	fmt.Println("func2 from test2")
 }
 
