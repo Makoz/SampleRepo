@@ -111,12 +111,12 @@ func main() {
 		return
 	}
 	var returnVal CFReturnVal
-	returnVal.Ip = "localhost:4000"
+	returnVal.Ip = "localhost:6000"
 	returnVal.FunName = "1"
 	returnVal.JsonArgString = string(b)
 	// fmt.Println("string b", returnVal.JsonArgString)
 	// returnVal.FunArgs = args
-	returnVal.ReturnToOrigin = false
+	returnVal.ReturnToOrigin = true
 	returnVal.ServiceFunName = "SampleServ.Reverse"
 	returnVal.CFInfo = cfInfo
 	buff, err := json.Marshal(returnVal)
@@ -131,9 +131,9 @@ func main() {
 
 	// cfId := os.Args[1]
 	// if cfId == "1" {
-	//  func1()
+	// 	func1()
 	// } else {
-	//  func2()
+	// 	func2()
 	// }
 
 }
