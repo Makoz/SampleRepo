@@ -61,6 +61,14 @@ func func2() {
 	fmt.Println("func2 from test2")
 }
 
+func formatJsonStringInput(str string) string {
+	str = strings.Replace(jsonString, "\\", "", -1)
+	last := len(jsonString) - 1
+	str = str[1:last]
+	return str
+}
+
+
 func main() {
 
 	usage := fmt.Sprintf("Usage: %s CF Id\n", os.Args[0])
